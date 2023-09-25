@@ -1,0 +1,145 @@
+:root {
+  --baseColor: #f65365;
+  --headerHeight: 56px;
+  --darkText: #292929;
+}
+
+.hamburger {
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--darkText);
+}
+
+.sidenav {
+  height: calc(100vh - var(--headerHeight));
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: var(--headerHeight);
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.3s;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 12px 0px;
+}
+
+.sidenav a {
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--darkText);
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+#main {
+  transition: margin-left 0.3s;
+  padding: 1.875em;
+  height: calc(100vh - var(--headerHeight));
+  background-color: #f8fafd;
+}
+
+#header {
+  height: var(--headerHeight);
+  background-color: #fff;
+  border-bottom: 1px solid #e8e9ed;
+}
+
+.header-content {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0px 1rem;
+}
+
+.main-menu {
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+  cursor: pointer;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 8px;
+  margin: 0px 8px;
+  transition: 0.3s;
+}
+
+.main-menu:hover,
+.sub-menu:hover {
+  background-color: #f6f7fb;
+}
+
+.main-menu:hover .menu-title,
+.sub-menu:hover .submenu-title {
+  color: var(--baseColor);
+}
+
+.sub-menu {
+  display: flex;
+  align-items: center;
+  padding-right: 16px;
+  padding-left: 32px;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  background-color: inherit;
+}
+
+.sub-menu-list {
+  padding: 0px 14px;
+}
+
+.sub-menu-block {
+  /* background-color: #f3f3f3; */
+}
+
+.menu-title,
+.submenu-title {
+  white-space: nowrap;
+  font-size: 14px;
+  color: #144339;
+  transition: 0.3s;
+}
+
+.menu-icon,
+.angle-down-icon {
+  color: var(--darkText);
+  transition: 0.3s;
+  color: #6f7e9c;
+}
+
+.angle-down-icon {
+  color: #a1a4b9;
+}
+
+.menu-item-btn {
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: inherit;
+  height: inherit;
+}
+
+.menu-item-btn[aria-expanded="true"] .main-menu .angle-down-icon {
+  transform: rotate(180deg);
+}
+
+.main-menu.active,
+.sub-menu.active {
+  background-color: #f6f7fb;
+}
+
+.main-menu.active .menu-title,
+.sub-menu.active .submenu-title {
+  color: var(--baseColor);
+}
