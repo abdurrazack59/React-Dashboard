@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Header() {
+function Header(props: any) {
   const [isSideNavOpen, setIsSideNavOpen] = useState(true);
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
@@ -33,20 +33,26 @@ function Header() {
   }, []);
 
   function openNav() {
-    const sideNavEl = document.getElementById("mySidenav");
+    const sideNavEl = document.getElementById("sidenav");
     const mainEl = document.getElementById("main");
     if (sideNavEl !== null && mainEl !== null) {
-      sideNavEl.style.width = "250px";
-      mainEl.style.marginLeft = windowSize.innerWidth < 541 ? "0px" : "250px";
+      sideNavEl.style.width = "230px";
+      mainEl.style.marginLeft = windowSize.innerWidth < 541 ? "0px" : "230px";
+      sideNavEl.classList.add("active");
+      sideNavEl.classList.remove("inactive");
+      localStorage.setItem('isNavOpen', 'true');
     }
   }
 
   function closeNav() {
-    const sideNavEl = document.getElementById("mySidenav");
+    const sideNavEl = document.getElementById("sidenav");
     const mainEl = document.getElementById("main");
     if (sideNavEl !== null && mainEl !== null) {
-      sideNavEl.style.width = "0px";
-      mainEl.style.marginLeft = "0px";
+      sideNavEl.style.width = "56px";
+      mainEl.style.marginLeft = "56px";
+      sideNavEl.classList.add("inactive");
+      sideNavEl.classList.remove("active");
+      localStorage.setItem('isNavOpen', 'false');
     }
   }
 

@@ -12,6 +12,6 @@ const Layout = (props) => {
       </main>
     </>
   );
-}
+};
 
 export default Layout;
